@@ -1,6 +1,6 @@
 console.log("working!");
 
-Access-Control-Allow-Origin: *
+
 
 
 $(document).ready(function(){
@@ -39,7 +39,11 @@ getToken(token, client_id, clientSecret);
     $(".button").click(function(){
        $.ajax({
            dataType:"json",
-           url:"http://todolist2.azurewebsites.net/tasks",
+           url:"https://todolist2.azurewebsites.net/tasks",
+           headers:{
+                'Access-Control-Allow-Origin':'*'
+           },
+           method:"GET",
            success:function(data){
                $.each(data, function(i,item){
                $("#content").append(item.name+"<br/>");
