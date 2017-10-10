@@ -22,10 +22,14 @@ $(document).ready(function(){
              var obj = JSON.parse(response);
              key = obj.access_token;
              token = key;
+             console.log(request.responseText);
              alert("successful!");
              
+         }else{
+             console.log("Error", request.statusText);
          }
      }
+
  }
 
 getToken(token, client_id, clientSecret);
