@@ -5,7 +5,7 @@ console.log("working!");
 
 $(document).ready(function(){
 
-  /*  var token;
+   var token;
     var client_id = "938228a1-9ac9-4084-8ede-3c9088ba476a";
     var clientSecret = "06fR2q/onGGgW3pgLxGrlsTE+DnG+fRLpFCc9Dk/YRw=";
     var tenant_id = `ea14b53f-1ff1-4682-92a4-b59d20531b04`;
@@ -34,7 +34,7 @@ $(document).ready(function(){
 
  }
 
-getToken(token, client_id, clientSecret);*/
+getToken(token, client_id, clientSecret);
 
     $(".button").click(function(){
        $.ajax({
