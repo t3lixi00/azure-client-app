@@ -38,10 +38,11 @@ getToken(token, client_id, clientSecret);
 
     $(".button").click(function(){
        $.ajax({
-           dataType:"json",
+    
            url:"https://todolist2.azurewebsites.net/tasks",
-           beforeSend: function(xhr){
-               xhr.setRequestHeader("Access-Control-Allow-Origin","*")
+           headers:{
+                'Access-Control-Allow-Origin':'*',
+                'Content-Type':'application/x-www-form-urlencoded'
            },
            method:"GET",
            success:function(data){
