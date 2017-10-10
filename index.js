@@ -16,7 +16,7 @@ $(document).ready(function(){
  function getToken(tenant_id, tokenurl, client_id, clientSecret, scope){
      var key;
      request.open("POST", tokenurl, true );
-     request.setRequestHeader("Content-type", "application/json");
+     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
      request.send("grant_type=client_credentials&client_id=" + client_id+"&"+"client_secret="+clientSecret+ "&"+"scope="+scope);
      request.onreadystatechange = function(){
          if(request.readyState == request.DONE){
