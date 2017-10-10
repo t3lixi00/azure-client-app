@@ -43,7 +43,8 @@ getToken(token, client_id, clientSecret);*/
            headers:{
                 
                 'Content-Type':'application/x-www-form-urlencoded',
-                'Access-Control-Allow-Origin':'*'
+                'Access-Control-Allow-Origin':'*',
+                'Access-Control-Allow-Headers':'Content-Type'
            },
            method:"GET",
            success:function(data){
