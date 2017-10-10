@@ -3,61 +3,38 @@ console.log("working!");
 
 $(document).ready(function(){
 
-/**
- * Call a Web API using an access token.
- * @param {any} endpoint - Web API endpoint
- * @param {any} token - Access token
- * @param {object} responseElement - HTML element used to display the results
- * @param {object} showTokenElement = HTML element used to display the RAW access token
- */
-function callWebApiWithToken(endpoint, token, responseElement, showTokenElement) {
-    var headers = new Headers();
-    var bearer = "Bearer " + token;
-    headers.append("Authorization", bearer);
-    var options = {
-        method: "GET",
-        headers: headers
-    };
+    var token;
+    var client_id = "938228a1-9ac9-4084-8ede-3c9088ba476a";
+    var clientSecret = "06fR2q/onGGgW3pgLxGrlsTE+DnG+fRLpFCc9Dk/YRw=";
+    var tokenurl = "https://login.microsoftonline.com/common/oauth2/v2.0/token"; 
+    var request = new XMLHttpRequest();
 
-    fetch(endpoint, options)
-        .then(function (response) {
-            var contentType = response.headers.get("content-type");
-            if (response.status === 200 && contentType && contentType.indexOf("application/json") !== -1) {
-                response.json()
-                    .then(function (data) {
-                        // Display response in the page
-                        console.log(data);
-                        responseElement.innerHTML = JSON.stringify(data, null, 4);
-                        if (showTokenElement) {
-                            showTokenElement.parentElement.classList.remove("hidden");
-                            showTokenElement.innerHTML = token;
-                        }
-                    })
-                    .catch(function (error) {
-                        showError(endpoint, error);
-                    });
-            } else {
-                response.json()
-                    .then(function (data) {
-                        // Display response as error in the page
-                        showError(endpoint, data);
-                    })
-                    .catch(function (error) {
-                        showError(endpoint, error);
-                    });
-            }
-        })
-        .catch(function (error) {
-            showError(endpoint, error);
-        });
-}
+ function getToken(tokenurl, client_id, clientSecret ){
+     var key;
+     request.open("POST", tokenurl, true );
+     request.setRequestHeader("Content-type", "application/json");
+     request.send("grant_type=client_credentials&client_id=" + client_id+"&"+"client_secret="+clientSecret);
+     request.onreadystatechange = function(){
+         if(request.readyState == request.DONE){
+             var response = request.responseText;
+             var obj = JSON.parse(response);
+             key = obj.access_token;
+             token = key;
+             alert("successful!");
+             
+         }
+     }
+ }
 
+getToken(token, client_id, clientSecret);
 
-
-    $(".button").click(function(){
+ /*   $(".button").click(function(){
        $.ajax({
            dataType:"json",
            url:"http://todolist2.azurewebsites.net/tasks",
+           beforeSend: function(xhr){
+               xhr.setRequestHeader("Authorization", "Bearer "+token)
+           },
            success:function(data){
                $.each(data, function(i,item){
                $("#content").append(item.name+"<br/>");
@@ -70,6 +47,6 @@ function callWebApiWithToken(endpoint, token, responseElement, showTokenElement)
             alert('error: ' + textStatus + ': ' + errorThrown);
         }
        })
-    })
+    })*/
 
 })
