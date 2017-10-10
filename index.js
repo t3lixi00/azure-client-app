@@ -41,7 +41,7 @@ getToken(token, client_id, clientSecret);
     
            url:"https://todolist2.azurewebsites.net/tasks",
            headers:{
-                'Access-Control-Allow-Origin':'*',
+                
                 'Content-Type':'application/x-www-form-urlencoded'
            },
            method:"GET",
