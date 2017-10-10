@@ -34,13 +34,10 @@ $(document).ready(function(){
 
 getToken(token, client_id, clientSecret);
 
- /*   $(".button").click(function(){
+    $(".button").click(function(){
        $.ajax({
            dataType:"json",
            url:"http://todolist2.azurewebsites.net/tasks",
-           beforeSend: function(xhr){
-               xhr.setRequestHeader("Authorization", "Bearer "+token)
-           },
            success:function(data){
                $.each(data, function(i,item){
                $("#content").append(item.name+"<br/>");
@@ -53,6 +50,6 @@ getToken(token, client_id, clientSecret);
             alert('error: ' + textStatus + ': ' + errorThrown);
         }
        })
-    })*/
+    })
 
 })
