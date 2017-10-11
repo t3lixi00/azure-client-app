@@ -16,16 +16,13 @@ $(document).ready(function(){
      request.send("grant_type=client_credentials&client_id=" + client_id+"&"+"client_secret="+clientSecret+ "&"+"resource="+resource);
      request.onreadystatechange = function(){
          if(request.readyState == request.DONE){
-          
-           var obj = JSON.parse(this.responseText);
+           var obj = JSON.parse(request.responseText);
              token = obj.access_token; 
              console.log(token);
            //  console.log(request.responseText);
-             console.log(token);
              return token;
          }else{
              console.log("Error", request.statusText);
-             document.getElementsByClassName("well").innerHTML = request.responseText;
          }
      }
 
