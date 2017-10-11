@@ -11,11 +11,12 @@ $(document).ready(function(){
 
  function getToken(){
     // var key;
-    
-     
+     request.open("POST", tokenurl, true );
+     request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+     request.send("grant_type=client_credentials&client_id=" + client_id+"&"+"client_secret="+clientSecret+ "&"+"resource="+resource);
      request.onreadystatechange = function(){
          if(request.readyState == request.DONE){
-           var obj = JSON.parse(request.responseText);
+         //  var obj = JSON.parse(request.responseText);
              token = obj.access_token; 
              console.log(token);
            //  console.log(request.responseText);
@@ -25,9 +26,7 @@ $(document).ready(function(){
              console.log("Error", request.statusText);
          }
      }
-     request.open("POST", tokenurl, true );
-     request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-     request.send("grant_type=client_credentials&client_id=" + client_id+"&"+"client_secret="+clientSecret+ "&"+"resource="+resource);
+
 
  }
 
