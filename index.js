@@ -16,11 +16,9 @@ $(document).ready(function(){
      request.send("grant_type=client_credentials&client_id=" + client_id+"&"+"client_secret="+clientSecret+ "&"+"resource="+resource);
      request.onreadystatechange = function(){
          if(request.readyState == request.DONE){
-             var response = request.responseText;
-             var obj = JSON.parse(response);
+             var obj = JSON.parse(responseBody);
              token = obj.access_token; 
              console.log(request.responseText);
-             alert("successful!");
              return token;
          }else{
              console.log("Error", request.statusText);
@@ -41,7 +39,6 @@ getToken();
            success:function(data){
                $.each(data, function(i,item){
                $("#content").append(item.name+"<br/>");
-               
                });
 
            },
