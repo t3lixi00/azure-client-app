@@ -2,8 +2,8 @@
 $(document).ready(function(){
 
     var token;
-    var client_id = "00055cf7-0947-4c82-975b-fdfd5164d2dd";
-    var clientSecret = "sjiH+kHAulTDrwICCUW9zU9I9SZEAJNLUUfXWh5iM3Q=";
+    var client_id = `00055cf7-0947-4c82-975b-fdfd5164d2dd`;
+    var clientSecret = `sjiH+kHAulTDrwICCUW9zU9I9SZEAJNLUUfXWh5iM3Q=`;
     var tenant_id = `ea14b53f-1ff1-4682-92a4-b59d20531b04`;
     var tokenurl = `https://login.microsoftonline.com/${tenant_id}/oauth2/token/`;
     var resource = "https://todolist2.azurewebsites.net/";
