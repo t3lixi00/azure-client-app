@@ -37,12 +37,11 @@ getToken();
     
            url:"https://todolist2.azurewebsites.net/tasks",
            method:"GET",
-           headers:{"Authorization": token},
+           headers:{"Authorization":"Bearer "+token},
            success:function(data){
                $.each(data, function(i,item){
                $("#content").append(item.name+"<br/>");
                });
-
            },
 
            error: function(jqXHR, textStatus, errorThrown){
