@@ -37,7 +37,7 @@ getToken();
     
            url:"https://todolist2.azurewebsites.net/tasks",
            method:"GET",
-           crossDoman: true,
+           headers:{"Authorization": token},
            success:function(data){
                $.each(data, function(i,item){
                $("#content").append(item.name+"<br/>");
