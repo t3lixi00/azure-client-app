@@ -12,7 +12,7 @@ $(document).ready(function(){
  function getToken(){
     // var key;
      request.open("POST", tokenurl, true );
-     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+     request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
      request.send("grant_type=client_credentials&client_id=" + client_id+"&"+"client_secret="+clientSecret+ "&"+"resource="+resource);
      request.onreadystatechange = function(){
          if(request.readyState == request.DONE){
