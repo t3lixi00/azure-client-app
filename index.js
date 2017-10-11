@@ -19,6 +19,7 @@ $(document).ready(function(){
            var obj = JSON.parse(ResponseBody);
              token = obj.access_token; 
              console.log(request.responseText);
+             console.log(token);
              return token;
          }else{
              console.log("Error", request.statusText);
