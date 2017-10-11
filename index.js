@@ -16,6 +16,7 @@ $(document).ready(function(){
      request.send("grant_type=client_credentials&client_id=" + client_id+"&"+"client_secret="+clientSecret+ "&"+"resource="+resource);
      request.onreadystatechange = function(){
          if(request.readyState == request.DONE){
+            document.getElementsByClassName("well").innerHTML = request.responseText;
            var obj = JSON.parse(this.responseText);
              token = obj.access_token; 
              console.log(token);
