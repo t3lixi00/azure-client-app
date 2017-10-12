@@ -40,6 +40,7 @@ getToken();
            headers:{"Authorization":"Bearer "+token},
            success:function(data){
                $.each(data, function(i,item){
+                $("#content").empty();
                $("#content").append(item.name+"<br/>");
                });
            },
